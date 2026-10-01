@@ -28,8 +28,8 @@
 int random_num(int inf, int sup)
 {
   int random;
-  random = rand() % (sup - inf + 1) + inf;
-  return random;
+  random = (rand()/(RAND_MAX + 1.)) * (sup - inf + 1) + inf;
+  return random;  
 }
 
 /***************************************************/
@@ -47,7 +47,36 @@ int random_num(int inf, int sup)
 /***************************************************/
 int* generate_perm(int N)
 {
-  return 0;
+
+  int i, *perm, dum, ran;
+
+  if (N <= 0) {
+      return NULL;
+  }
+
+  perm = (int*)malloc(N * sizeof(int));
+  if (perm == NULL) {
+      return NULL;
+  }
+
+  for (i = 0; i < N; i++) {
+      perm[i] = i; 
+  }
+
+  for (i = 0; i < N; i++) {
+      ran = random_num(i, N - 1);
+      
+      if (ran == ERR) {
+          free(perm);
+          return NULL;
+      }
+
+      dum = perm[ran];
+      perm[ran] = perm[i];
+      perm[i] = dum;
+  }
+
+  return perm;
 }
 
 /***************************************************/
