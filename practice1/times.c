@@ -11,6 +11,7 @@
 
 #include "times.h"
 #include "sorting.h"
+#include "permutations.h"
 
 /***************************************************/
 /* Function: average_sorting_time Date:            */
@@ -23,6 +24,35 @@ short average_sorting_time(pfunc_sort metodo,
                               PTIME_AA ptime)
 {
 /* Your code */
+int ** perm;
+double time, average_ob;
+int min_ob, max_ob;
+clock_t ini;
+clock_t fin;
+int ret, j;
+
+perm = generate_permutations(n_perms, N);
+/*Control de errores y gestion de memoria*/
+
+ini = clock();
+  /*Control de errores y gestion de memoria*/
+for (j = 0; j < n_perms; j++)
+{
+  ret = metodo(perm[j], 0, N-1);
+  if (ret < min_ob) min_ob = ret;
+
+  else if(ret > max_ob) max_ob = ret;
+
+  average_ob += ret/(double)n_perms;
+}
+
+fin = clock();
+ptime->N = N
+ptime->n_elems = n
+ptime->
+ptime->
+ptime->
+ptime->
 }
 
 /***************************************************/
