@@ -12,6 +12,9 @@
 #ifndef TIMES_H
 #define TIMES_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 /* constants */
 
 #ifndef ERR
