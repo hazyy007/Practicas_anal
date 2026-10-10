@@ -23,7 +23,6 @@ short average_sorting_time(pfunc_sort metodo,
                               int N, 
                               PTIME_AA ptime)
 {
-/* Your code */
 int ** perm;
 double time, average_ob;
 int min_ob, max_ob;
@@ -64,7 +63,16 @@ short generate_sorting_times(pfunc_sort method, char* file,
                                 int num_min, int num_max, 
                                 int incr, int n_perms)
 {
-  /* Your code */
+  PTIME_AA times;
+  int j;
+  int num;
+  
+  
+
+
+  for(j=num_min; j < num_max; j++){
+    average_sorting_time(method, n_perms)
+  }
 }
 
 /***************************************************/
@@ -74,7 +82,20 @@ short generate_sorting_times(pfunc_sort method, char* file,
 /***************************************************/
 short save_time_table(char* file, PTIME_AA ptime, int n_times)
 {
-  /* your code */
+  FILE *fp;
+  int j;
+
+  fp = fopen(file, "w");
+  if(!fp){
+    return ERR;
+  }
+
+  fprintf(fp, "%ld %i %d %d %d\n", time[j].N,time[j].time, );
+
+  fclose(fp);
+
+  return OK;
+
 }
 
 
